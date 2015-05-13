@@ -9,19 +9,24 @@ import java.io.IOException;
  * 
  */
 public class FileDemo {
-	
+
 	public static void main(String[] args) {
-		//1、文件的创建与删除
-		String path = "D:"+File.separator+"file.txt";
+		new FileDemo().createFile();
+	}
+
+	//创建文件
+	public void createFile() {
+		// 1、文件的创建与删除
+		String path = "D:" + File.separator + "file.txt";
 		File file = new File(path);
 		try {
-			if(file.exists()){
-				//删除
+			if (file.exists()) {
+				// 删除
 				file.delete();
-			}else{
-				//创建
+			} else {
+				// 创建
 				file.createNewFile();
-				//文件写入字符流
+				// 文件写入字符流
 				FileWriter fopw = new FileWriter(file);
 				fopw.write("hello world1.\r\n");
 				fopw.write("hello world2.\r\n");
@@ -32,8 +37,9 @@ public class FileDemo {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
 	}
+	
+	//读取文件
+	
 
 }
